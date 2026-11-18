@@ -4,6 +4,7 @@ public class MovementSpeed : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private Rigidbody rbPlayer;
+    [SerializeField] private float sidewaysForce = 15f;
     void Start()
     {
        
@@ -15,11 +16,11 @@ public class MovementSpeed : MonoBehaviour
         rbPlayer.AddForce(0.0f, 0.0f, speed);
         if (Input.GetKey(KeyCode.Q))
         {
-               rbPlayer.AddForce(-10.0f, 0.0f, 0.0f);
+               rbPlayer.AddForce(-sidewaysForce, 0.0f, 0.0f, ForceMode.VelocityChange);
         }
         if(Input.GetKey(KeyCode.D))
         {
-               rbPlayer.AddForce(10.0f, 0.0f, 0.0f);
+               rbPlayer.AddForce(sidewaysForce, 0.0f, 0.0f, ForceMode.VelocityChange);
         }
     }
 }
